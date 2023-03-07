@@ -164,7 +164,8 @@ function initVueRouterGuard(
       ...(await deriveAdditionalEventData(to, from)),
       ...(to.meta?.gtmAdditionalEventData as Record<string, any>),
     };
-    const baseUrl: string = vueRouter.options?.history?.base ?? '';
+    const baseUrl: string = vueRouter.options?.history?.base ? vueRouter.options?.history?.base : '';
+    
     let fullUrl: string = baseUrl;
     if (!fullUrl.endsWith('/')) {
       fullUrl += '/';
